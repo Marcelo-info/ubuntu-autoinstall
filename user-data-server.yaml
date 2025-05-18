@@ -1,0 +1,26 @@
+
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    realname: 'Usuário Servidor'
+    hostname: server-corp
+    username: user
+    password: '$y$j9T$uhkxlm8nUQaNu.6rl4k2d.$DIldpYy96OHg8lFjfXfc671BZcGWkPOmaDONGAhGSg3'
+  locale: pt_BR.UTF-8
+  keyboard:
+    layout: br
+  timezone: America/Sao_Paulo
+  packages:
+    - git
+    - curl
+    - htop
+    - ufw
+  codecs:
+    install: false
+  drivers:
+    install: false
+  updates: all
+  late-commands:
+    - curl -sSL https://gitlab.com/marcelo_paulo-group/marcelo_paulo-project/-/raw/main/scripts/install-server.sh | bash
+  shutdown: reboot

@@ -1,0 +1,30 @@
+
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    realname: 'Usuário Corporativo'
+    hostname: desktop-corp
+    username: user
+    password: '$y$j9T$uhkxlm8nUQaNu.6rl4k2d.$DIldpYy96OHg8lFjfXfc671BZcGWkPOmaDONGAhGSg3'
+  locale: pt_BR.UTF-8
+  keyboard:
+    layout: br
+  timezone: America/Sao_Paulo
+  packages:
+    - libreoffice
+    - gimp
+    - git
+    - wget
+  snaps:
+    - name: spotify
+      channel: stable
+      classic: false
+  codecs:
+    install: true
+  drivers:
+    install: true
+  updates: all
+  late-commands:
+    - curl -sSL https://gitlab.com/marcelo_paulo-group/marcelo_paulo-project/-/raw/main/scripts/install-desktop.sh | bash
+  shutdown: reboot
